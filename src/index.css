@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.group:hover .group-hover\:stroke-white path {
+    stroke: white;
+}
+
+.group:hover .group-hover\:stroke-white line {
+    stroke: white;
+}
+
+.group:hover .group-hover\:stroke-black path {
+    stroke: black;
+}
+
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+    @apply transform;
+    @apply text-xs text-gray-500;
+    @apply -translate-y-6;
+}
+
+input:focus ~ label {
+    @apply text-black;
+    @apply left-0;
+}
+
+.swiper-slide {
+    @apply !text-left;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    @apply hidden;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    @apply !w-[46px] !h-[46px];
+}
+
+@layer utilities {
+    .custom-number-input::-webkit-outer-spin-button,
+    .custom-number-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .custom-number-input {
+        -moz-appearance: textfield;
+    }
+}
