@@ -162,6 +162,20 @@ const Products = () => {
         // placeholderData: keepPreviousData,
     });
     console.log(products);
+    const fetchData = () => {
+        fetch(
+            "https://be-smarttech.onrender.com/api/product/get-all?limit=9&page=0&sort="
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data); // Kiểm tra dữ liệu ở đây
+                // Xử lý và hiển thị dữ liệu
+            })
+            .catch((error) => console.error("Error fetching data:", error));
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
 
     return (
         <div>
