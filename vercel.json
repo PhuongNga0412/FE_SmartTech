@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/(.*)", // Bắt mọi request
+            "destination": "/" // Redirect về trang gốc (index.html)
+        }
+    ]
+}

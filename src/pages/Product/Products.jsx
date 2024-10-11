@@ -127,7 +127,6 @@ const Products = () => {
         const search = context?.queryKey && context?.queryKey[2];
         const page = context?.queryKey && context?.queryKey[3];
         const filters = buildFilterQuery();
-        console.log(search);
         const res = await ProductService.getAllProduct(
             search,
             limit,
@@ -162,17 +161,15 @@ const Products = () => {
         // placeholderData: keepPreviousData,
     });
     console.log(products);
-    const fetchData = () => {
-        fetch(
+    const fetchData = async () => {
+        const data = await fetch(
             "https://be-smarttech.onrender.com/api/product/get-all?limit=9&page=0&sort="
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data); // Kiểm tra dữ liệu ở đây
-                // Xử lý và hiển thị dữ liệu
-            })
-            .catch((error) => console.error("Error fetching data:", error));
+        );
+        const userList = await data.json();
+        console.log(userList);
+        return userList;
     };
+
     useEffect(() => {
         fetchData();
     }, []);
